@@ -1,0 +1,10 @@
+{
+  "name": "EcoLink Zambeze",
+  "short_name": "EcoLink",
+  "lang": "pt-MZ",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#147a3b",
+  "icons": [{"src":"assets/logo.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
+}

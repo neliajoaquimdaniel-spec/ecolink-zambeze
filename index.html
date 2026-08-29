@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="pt-MZ">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="EcoLink Zambeze — plataforma inteligente para gestão de resíduos sólidos urbanos.">
+  <title>EcoLink Zambeze | Gestão de Resíduos</title>
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="toast-container"></div>
+
+  <!-- LOGIN -->
+  <section id="login-screen" class="auth-screen">
+    <div class="auth-card auth-card-wide">
+      <div class="brand-center">
+        <img src="assets/logo.svg" alt="EcoLink Zambeze" class="brand-logo">
+        <h1>EcoLink <span>Zambeze</span></h1>
+        <p>Juntos por um Zambeze mais limpo e sustentável.</p>
+      </div>
+      <form id="login-form">
+        <label>Tipo de acesso<select id="login-role"><option value="municipe">Munícipe</option><option value="reciclador">Reciclador</option><option value="admin">Administrador</option></select></label>
+        <label>Número de telefone
+          <input type="tel" id="phone" value="+258 85 222 3344" required>
+        </label>
+        <label>Palavra-passe
+          <div class="password-field">
+            <input type="password" id="password" value="12345678" required>
+            <button type="button" id="toggle-password" aria-label="Mostrar palavra-passe">◉</button>
+          </div>
+        </label>
+        <div class="form-row">
+          <label class="checkbox"><input type="checkbox" checked> Lembrar-me</label>
+          <a href="#" id="forgot-password">Esqueceu a palavra-passe?</a>
+        </div>
+        <button class="btn btn-primary btn-full" type="submit">Entrar</button>
+      </form>
+      <div class="divider"><span>ou continue com</span></div>
+      <div class="social-login">
+        <button class="social-btn" type="button">G</button>
+        <button class="social-btn" type="button">f</button>
+      </div>
+      <button class="btn btn-outline btn-full" id="register-demo" type="button">Criar conta</button>
+    </div>
+  </section>
+
+  <!-- APP -->
+  <section id="app" class="app-shell hidden">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <img src="assets/logo.svg" alt="">
+        <div><strong>EcoLink</strong><span>Zambeze</span></div>
+      </div>
+      <nav>
+        <button class="nav-item active" data-page="dashboard"><span>⌂</span> Dashboard</button>
+        <button class="nav-item" data-page="citizen"><span>📷</span> Portal do Munícipe</button>
+        <button class="nav-item" data-page="recycler"><span>♻</span> Portal do Reciclador</button>
+        <button class="nav-item" data-page="users"><span>♙</span> Utilizadores</button>
+        <button class="nav-item" data-page="recyclers"><span>♻</span> Recicladores</button>
+        <button class="nav-item" data-page="requests"><span>▣</span> Solicitações</button>
+        <button class="nav-item" data-page="pickups"><span>▰</span> Recolhas</button>
+        <button class="nav-item" data-page="points"><span>⌖</span> Pontos de Reciclagem</button>
+        <button class="nav-item" data-page="rewards"><span>💰</span> Recompensas</button>
+        <button class="nav-item" data-page="reports"><span>▤</span> Relatórios</button>
+        <button class="nav-item" data-page="settings"><span>⚙</span> Configurações</button>
+      </nav>
+      <button class="logout" id="logout"><span>↪</span> Sair</button>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobile-menu">☰</button>
+        <div class="topbar-title">
+          <h2 id="page-title">Dashboard</h2>
+          <span id="page-subtitle">Visão geral da plataforma EcoLink</span>
+        </div>
+        <div class="topbar-actions">
+          <button class="icon-btn" title="Notificações" id="notifications">♧<b>3</b></button>
+          <div class="profile">
+            <div class="avatar" id="avatar">AM</div>
+            <div><strong id="profile-name">Administrador</strong><small id="profile-sub">INFOTECH, LDA</small></div>
+          </div>
+        </div>
+      </header>
+
+      <div class="page-wrap">
+        <!-- DASHBOARD -->
+        <section class="page active" id="page-dashboard">
+          <div class="page-toolbar">
+            <div>
+              <h3>Bom dia, Administrador!</h3>
+              <p>Acompanhe os principais indicadores da gestão de resíduos.</p>
+            </div>
+            <select id="period-select"><option>Hoje</option><option>Esta semana</option><option selected>Este mês</option><option>Este ano</option></select>
+          </div>
+
+          <div class="stats-grid">
+            <article class="stat-card">
+              <div class="stat-icon green">♙</div>
+              <div><span>Utilizadores</span><strong data-stat="users">1,256</strong><small class="up">+12% este mês</small></div>
+            </article>
+            <article class="stat-card">
+              <div class="stat-icon blue">▣</div>
+              <div><span>Solicitações</span><strong data-stat="requests">342</strong><small class="up">+8% este mês</small></div>
+            </article>
+            <article class="stat-card">
+              <div class="stat-icon orange">▰</div>
+              <div><span>Recolhas realizadas</span><strong data-stat="pickups">289</strong><small class="up">+15% este mês</small></div>
+            </article>
+            <article class="stat-card">
+              <div class="stat-icon purple">♻</div>
+              <div><span>Resíduos coletados</span><strong>2.45 t</strong><small>Este mês</small></div>
+            </article>
+          </div>
+
+          <div class="citizen-quick panel">
+            <div>
+              <span class="eyebrow">ACÇÃO RÁPIDA</span>
+              <h3>Tem lixo acumulado?</h3>
+              <p>Envie uma fotografia, indique o local e receba <strong>+25 pontos</strong> por cada relato válido.</p>
+            </div>
+            <div class="quick-actions">
+              <button class="btn btn-primary" data-go="citizen">📷 Reportar lixo</button>
+              <button class="btn btn-outline" data-go="rewards">💰 Ver recompensas</button>
+            </div>
+          </div>
+
+          <div class="dashboard-grid">
+            <article class="panel chart-panel">
+              <div class="panel-head"><div><h3>Solicitações por mês</h3><span>Volume de pedidos de recolha</span></div><button class="more">•••</button></div>
+              <div class="line-chart">
+                <div class="y-labels"><span>400</span><span>300</span><span>200</span><span>100</span><span>0</span></div>
+                <div class="chart-area">
+                  <svg viewBox="0 0 700 260" preserveAspectRatio="none" aria-label="Gráfico de solicitações">
+                    <g class="grid-lines">
+                      <line x1="0" y1="15" x2="700" y2="15"/><line x1="0" y1="72" x2="700" y2="72"/>
+                      <line x1="0" y1="130" x2="700" y2="130"/><line x1="0" y1="187" x2="700" y2="187"/><line x1="0" y1="245" x2="700" y2="245"/>
+                    </g>
+                    <polyline class="chart-line" points="25,190 155,165 285,100 415,125 545,82 675,45"/>
+                    <g class="chart-dots"><circle cx="25" cy="190" r="5"/><circle cx="155" cy="165" r="5"/><circle cx="285" cy="100" r="5"/><circle cx="415" cy="125" r="5"/><circle cx="545" cy="82" r="5"/><circle cx="675" cy="45" r="5"/></g>
+                  </svg>
+                  <div class="x-labels"><span>Jan</span><span>Fev</span><span>Mar</span><span>Abr</span><span>Mai</span><span>Jun</span></div>
+                </div>
+              </div>
+            </article>
+
+            <article class="panel donut-panel">
+              <div class="panel-head"><div><h3>Tipos de resíduos coletados</h3><span>Distribuição por categoria</span></div></div>
+              <div class="donut-wrap">
+                <div class="donut"><div><strong>2.45</strong><span>Toneladas</span></div></div>
+                <div class="legend">
+                  <span><i class="dot plastic"></i>Plástico <b>40%</b></span>
+                  <span><i class="dot paper"></i>Papel <b>25%</b></span>
+                  <span><i class="dot metal"></i>Metal <b>15%</b></span>
+                  <span><i class="dot glass"></i>Vidro <b>10%</b></span>
+                  <span><i class="dot other"></i>Outros <b>10%</b></span>
+                </div>
+              </div>
+            </article>
+
+            <article class="panel">
+              <div class="panel-head"><div><h3>Solicitações recentes</h3><span>Últimos pedidos registados</span></div><button class="text-btn" data-go="requests">Ver todas</button></div>
+              <div class="mini-list">
+                <div><span class="mini-avatar">MS</span><div><strong>Maria da Silva</strong><small>Plástico · Centro</small></div><em class="status pending">Pendente</em></div>
+                <div><span class="mini-avatar">JP</span><div><strong>João Pedro</strong><small>Papel · 25 de Junho</small></div><em class="status progress">Em andamento</em></div>
+                <div><span class="mini-avatar">AC</span><div><strong>Ana Chale</strong><small>Metal · Zona Aeroporto</small></div><em class="status done">Concluído</em></div>
+              </div>
+            </article>
+
+            <article class="panel">
+              <div class="panel-head"><div><h3>Recicladores ativos</h3><span>Equipa em operação</span></div><button class="text-btn" data-go="recyclers">Ver todos</button></div>
+              <div class="recycler-row"><span class="mini-avatar green-avatar">RC</span><div><strong>Recicla Quelimane</strong><small>12 recolhas hoje</small></div><span class="online"></span></div>
+              <div class="recycler-row"><span class="mini-avatar green-avatar">EC</span><div><strong>Eco Coleta</strong><small>8 recolhas hoje</small></div><span class="online"></span></div>
+              <div class="recycler-row"><span class="mini-avatar green-avatar">ZC</span><div><strong>Zambeze Circular</strong><small>6 recolhas hoje</small></div><span class="online"></span></div>
+            </article>
+          </div>
+        </section>
+
+        <!-- CITIZEN PORTAL -->
+        <section class="page" id="page-citizen">
+          <div class="page-toolbar"><div><h3>Portal do Cidadão</h3><p>Reporte lixo com fotografia, localização e observações. Tudo fica guardado neste navegador.</p></div><div class="citizen-balance"><span>Seus pontos</span><strong id="citizen-points">125</strong><small id="citizen-money">6.25 MT</small></div></div>
+          <div class="citizen-grid">
+            <form class="panel report-form" id="report-form">
+              <div class="panel-head"><div><h3>Reportar lixo</h3><span>Fotografe ou carregue imagens do resíduo.</span></div><span class="offline-badge">● Sem base de dados</span></div>
+              <div class="camera-box">
+                <div class="camera-icon">📷</div>
+                <h3>Adicionar fotografia</h3>
+                <p>Use a câmara do telemóvel ou escolha uma imagem da galeria.</p>
+                <div class="quick-actions">
+                  <button type="button" class="btn btn-primary" id="open-camera">📷 Abrir câmara</button>
+                  <button type="button" class="btn btn-outline" id="open-gallery">🖼 Carregar foto</button>
+                </div>
+                <input id="report-camera" type="file" accept="image/*" capture="environment" hidden>
+                <input id="report-gallery" type="file" accept="image/*" multiple hidden>
+                <div id="photo-preview" class="photo-preview"></div>
+              </div>
+              <div class="form-two">
+                <label>Tipo de resíduo<select id="report-type" required><option value="Plástico">Plástico</option><option value="Papel">Papel</option><option value="Metal">Metal</option><option value="Vidro">Vidro</option><option value="Orgânico">Orgânico</option><option value="Outros">Outros</option></select></label>
+                <label>Quantidade aproximada<select id="report-quantity" required><option>Saco pequeno (1–5kg)</option><option selected>Saco médio (10–20kg)</option><option>Saco grande (20–40kg)</option><option>Mais de 40kg</option></select></label>
+              </div>
+              <label>Endereço / bairro<input id="report-address" placeholder="Ex.: Bairro Centro, Quelimane" required></label><button type="button" class="btn btn-outline" id="locate-report">📍 Usar a minha localização</button>
+              <label>Observação (opcional)<textarea id="report-note" rows="3" placeholder="Ex.: lixo acumulado junto à estrada..."></textarea></label>
+              <button class="btn btn-primary btn-full" type="submit">Enviar relatório e ganhar +10 pontos</button>
+              <p class="privacy-note">Modo offline: os dados e imagens são guardados localmente neste dispositivo. Não é necessária uma base de dados do servidor.</p>
+            </form>
+            <div class="citizen-side">
+              <article class="panel"><div class="panel-head"><div><h3>Solicitar recolha</h3><span>Peça a um reciclador para recolher os resíduos.</span></div></div>
+                <form id="pickup-form" class="modal-form">
+                  <label>Tipo de resíduo<select id="pickup-type"><option>Plástico</option><option>Papel</option><option>Metal</option><option>Vidro</option><option>Orgânico</option><option>Outros</option></select></label>
+                  <label>Local da recolha<input id="pickup-address" required placeholder="Ex.: Bairro Centro, Quelimane"></label>
+                  <label>Observação<textarea id="pickup-note" rows="2" placeholder="Horário ou indicação adicional"></textarea></label>
+                  <button class="btn btn-primary btn-full">Solicitar recolha</button>
+                </form>
+              </article>
+              <article class="panel"><div class="panel-head"><div><h3>Meus reportes</h3><span>Acompanhe o estado das ocorrências.</span></div></div><div id="citizen-history"></div></article>
+              <article class="panel"><div class="panel-head"><div><h3>Como funciona?</h3><span>3 passos simples</span></div></div><div class="steps"><div><b>1</b><span>Fotografe o lixo</span></div><div><b>2</b><span>Envie o local e tipo de resíduo</span></div><div><b>3</b><span>Receba pontos e acompanhe a recolha</span></div></div></article>
+              <article class="panel"><div class="panel-head"><div><h3>Conversão de pontos</h3><span>Taxa definida para a demonstração</span></div></div><div class="conversion"><strong>100 pontos</strong><span>=</span><b>5,00 MT</b></div><p class="muted">Pode trocar o saldo por dinheiro através de M-Pesa ou e-Mola.</p><button class="btn btn-outline btn-full" data-go="rewards">Ir para recompensas →</button></article>
+            </div>
+          </div>
+        </section>
+
+        <!-- RECYCLER PORTAL -->
+        <section class="page" id="page-recycler">
+          <div class="page-toolbar"><div><h3>Painel do Reciclador</h3><p>Receba pedidos, aceite recolhas e confirme materiais recolhidos.</p></div><span class="offline-badge">● Operação local</span></div>
+          <div class="stats-grid compact"><article class="stat-card"><div class="stat-icon green">♻</div><div><span>Pedidos disponíveis</span><strong id="recycler-count">0</strong><small>Na sua zona</small></div></article><article class="stat-card"><div class="stat-icon blue">✓</div><div><span>Recolhas concluídas</span><strong>12</strong><small>Este mês</small></div></article><article class="stat-card"><div class="stat-icon orange">kg</div><div><span>Materiais registados</span><strong>245</strong><small>kg</small></div></article></div>
+          <article class="panel"><div class="panel-head"><div><h3>Pedidos para recolha</h3><span>Aceite um pedido e actualize o seu estado.</span></div></div><div id="recycler-requests" class="task-list"></div></article>
+        </section>
+
+        <!-- REQUESTS -->
+        <section class="page" id="page-requests">
+          <div class="page-toolbar"><div><h3>Solicitações</h3><p>Gestão dos pedidos de recolha enviados pelos utilizadores.</p></div><button class="btn btn-primary" id="export-requests">⇩ Exportar</button></div>
+          <div class="filter-bar"><div class="search"><span>⌕</span><input id="request-search" placeholder="Buscar solicitação..."></div><select id="status-filter"><option>Todas</option><option>Pendente</option><option>Em andamento</option><option>Concluído</option></select><select id="type-filter"><option>Todos os resíduos</option><option>Plástico</option><option>Papel</option><option>Metal</option><option>Vidro</option><option>Outros</option></select></div>
+          <div class="table-card">
+            <div class="table-scroll"><table id="requests-table"><thead><tr><th>ID</th><th>Utilizador</th><th>Tipo de resíduo</th><th>Quantidade</th><th>Endereço</th><th>Status</th><th>Data</th><th></th></tr></thead>
+            <tbody>
+              <tr><td>#1025</td><td><strong>Maria da Silva</strong></td><td>Plástico</td><td>Saco médio</td><td>Centro, Quelimane</td><td><span class="status pending">Pendente</span></td><td>03/06/2024</td><td><button class="row-action" data-action="view">⋮</button></td></tr>
+              <tr><td>#1024</td><td><strong>João Pedro</strong></td><td>Papel</td><td>Saco pequeno</td><td>Bairro 25 de Junho</td><td><span class="status progress">Em andamento</span></td><td>03/06/2024</td><td><button class="row-action" data-action="view">⋮</button></td></tr>
+              <tr><td>#1023</td><td><strong>Ana Chale</strong></td><td>Metal</td><td>Saco médio</td><td>Zona Aeroporto</td><td><span class="status done">Concluído</span></td><td>02/06/2024</td><td><button class="row-action" data-action="view">⋮</button></td></tr>
+              <tr><td>#1022</td><td><strong>Paulo Nthambumo</strong></td><td>Vidro</td><td>Saco pequeno</td><td>Mucura</td><td><span class="status done">Concluído</span></td><td>02/06/2024</td><td><button class="row-action" data-action="view">⋮</button></td></tr>
+              <tr><td>#1021</td><td><strong>Lúcia M.</strong></td><td>Plástico</td><td>Saco grande</td><td>Centro, Quelimane</td><td><span class="status pending">Pendente</span></td><td>01/06/2024</td><td><button class="row-action" data-action="view">⋮</button></td></tr>
+              <tr><td>#1020</td><td><strong>Carlos Macuácua</strong></td><td>Outros</td><td>Saco médio</td><td>Inhassunge</td><td><span class="status progress">Em andamento</span></td><td>01/06/2024</td><td><button class="row-action" data-action="view">⋮</button></td></tr>
+            </tbody></table></div>
+            <div class="table-footer"><span id="table-count">Mostrando 1 a 6 de 342 entradas</span><div class="pagination"><button>‹</button><button class="active">1</button><button>2</button><button>3</button><button>4</button><button>5</button><button>›</button></div></div>
+          </div>
+        </section>
+
+        <!-- GENERIC PAGES -->
+        <section class="page" id="page-users">
+          <div class="page-toolbar"><div><h3>Utilizadores</h3><p>Base de utilizadores registados na plataforma.</p></div><button class="btn btn-primary" data-add="utilizador">+ Novo utilizador</button></div>
+          <div class="stats-grid compact"><article class="stat-card"><div class="stat-icon green">♙</div><div><span>Total</span><strong>1,256</strong><small>Utilizadores</small></div></article><article class="stat-card"><div class="stat-icon blue">●</div><div><span>Ativos</span><strong>1,104</strong><small class="up">87.9%</small></div></article><article class="stat-card"><div class="stat-icon orange">＋</div><div><span>Novos este mês</span><strong>148</strong><small class="up">+12%</small></div></article></div>
+          <div class="table-card"><div class="table-scroll"><table><thead><tr><th>Utilizador</th><th>Telefone</th><th>Bairro</th><th>Pontos</th><th>Status</th><th>Registo</th></tr></thead><tbody>
+          <tr><td><strong>Maria da Silva</strong></td><td>+258 84 111 2233</td><td>Centro</td><td>125 pts</td><td><span class="status done">Ativo</span></td><td>12/05/2026</td></tr>
+          <tr><td><strong>João Pedro</strong></td><td>+258 85 234 7788</td><td>25 de Junho</td><td>92 pts</td><td><span class="status done">Ativo</span></td><td>10/05/2026</td></tr>
+          <tr><td><strong>Ana Chale</strong></td><td>+258 86 345 9911</td><td>Zona Aeroporto</td><td>240 pts</td><td><span class="status done">Ativo</span></td><td>08/05/2026</td></tr>
+          <tr><td><strong>Carlos Macuácua</strong></td><td>+258 87 455 1200</td><td>Inhassunge</td><td>64 pts</td><td><span class="status progress">Pendente</span></td><td>06/05/2026</td></tr>
+          </tbody></table></div></div>
+        </section>
+
+        <section class="page" id="page-recyclers">
+          <div class="page-toolbar"><div><h3>Recicladores</h3><p>Parceiros e equipas responsáveis pelas recolhas.</p></div><button class="btn btn-primary" data-add="reciclador">+ Adicionar reciclador</button></div>
+          <div class="cards-grid">
+            <article class="person-card"><div class="person-top"><div class="large-avatar">RQ</div><span class="badge-online">Online</span></div><h3>Recicla Quelimane</h3><p>Centro · Quelimane</p><div class="person-stats"><span><b>12</b> Recolhas hoje</span><span><b>96%</b> Avaliação</span></div><button class="btn btn-outline btn-full">Ver perfil</button></article>
+            <article class="person-card"><div class="person-top"><div class="large-avatar">EC</div><span class="badge-online">Online</span></div><h3>Eco Coleta</h3><p>25 de Junho · Quelimane</p><div class="person-stats"><span><b>8</b> Recolhas hoje</span><span><b>94%</b> Avaliação</span></div><button class="btn btn-outline btn-full">Ver perfil</button></article>
+            <article class="person-card"><div class="person-top"><div class="large-avatar">ZC</div><span class="badge-online">Online</span></div><h3>Zambeze Circular</h3><p>Mucura · Quelimane</p><div class="person-stats"><span><b>6</b> Recolhas hoje</span><span><b>91%</b> Avaliação</span></div><button class="btn btn-outline btn-full">Ver perfil</button></article>
+          </div>
+        </section>
+
+        <section class="page" id="page-pickups">
+          <div class="page-toolbar"><div><h3>Recolhas</h3><p>Monitorização das recolhas programadas e realizadas.</p></div><button class="btn btn-primary" data-add="recolha">+ Agendar recolha</button></div>
+          <div class="stats-grid compact"><article class="stat-card"><div class="stat-icon green">✓</div><div><span>Concluídas</span><strong>289</strong><small class="up">+15%</small></div></article><article class="stat-card"><div class="stat-icon orange">◷</div><div><span>Em andamento</span><strong>38</strong><small>Hoje</small></div></article><article class="stat-card"><div class="stat-icon blue">◫</div><div><span>Agendadas</span><strong>61</strong><small>Próximas 24h</small></div></article></div>
+          <div class="timeline panel">
+            <div class="panel-head"><div><h3>Recolhas de hoje</h3><span>Rotas em operação</span></div></div>
+            <div class="timeline-item"><div class="time">08:00</div><div class="route-dot"></div><div><strong>Recicla Quelimane</strong><p>Centro → Mucura · 5 solicitações</p></div><span class="status done">Concluído</span></div>
+            <div class="timeline-item"><div class="time">10:30</div><div class="route-dot"></div><div><strong>Eco Coleta</strong><p>25 de Junho → Aeroporto · 4 solicitações</p></div><span class="status progress">Em andamento</span></div>
+            <div class="timeline-item"><div class="time">14:00</div><div class="route-dot"></div><div><strong>Zambeze Circular</strong><p>Inhamitanga → Centro · 7 solicitações</p></div><span class="status pending">Agendada</span></div>
+          </div>
+        </section>
+
+        <section class="page" id="page-points">
+          <div class="page-toolbar"><div><h3>Pontos de Reciclagem</h3><p>Locais onde os cidadãos podem entregar resíduos recicláveis.</p></div><button class="btn btn-primary" data-add="ponto">+ Novo ponto</button></div>
+          <div class="map-card"><div class="fake-map"><span class="map-water"></span><i style="left:25%;top:35%">♻</i><i style="left:65%;top:24%">♻</i><i style="left:48%;top:60%">♻</i><i style="left:78%;top:65%">♻</i><div class="map-pin" style="left:55%;top:47%">●</div></div><div class="point-list"><div class="point selected"><span>♻</span><div><strong>Ponto de Reciclagem</strong><small>Quelimane, Centro</small><em>Aberto · 07:00 – 17:00</em></div><b>1.2 km</b></div><div class="point"><span>♻</span><div><strong>EcoPonto Mucura</strong><small>Mucura</small><em>Aberto · 07:00 – 18:00</em></div><b>2.4 km</b></div><div class="point"><span>♻</span><div><strong>Ponto 25 de Junho</strong><small>25 de Junho</small><em>Aberto · 08:00 – 17:00</em></div><b>3.1 km</b></div></div></div>
+        </section>
+
+        <section class="page" id="page-rewards">
+          <div class="page-toolbar"><div><h3>Recompensas</h3><p>Converta os seus pontos em dinheiro para M-Pesa ou e-Mola.</p></div></div>
+          <div class="reward-grid">
+            <article class="reward-balance panel"><span>Saldo disponível</span><strong id="reward-points">125</strong><small>pontos</small><div class="money-value" id="reward-money">6.25 MT</div><p>Taxa: <b>100 pontos = 5,00 MT</b></p></article>
+            <form class="panel payout-form" id="payout-form"><div class="panel-head"><div><h3>Levantar saldo</h3><span>Pagamento simulado localmente</span></div></div><label>Pontos a converter<input id="redeem-points" type="number" min="100" step="100" placeholder="Ex.: 100" required></label><label>Método de pagamento<select id="payout-method"><option>M-Pesa</option><option>e-Mola</option></select></label><label>Número da carteira<input id="payout-phone" type="tel" placeholder="+258 84 123 4567" required></label><div class="conversion"><span>Valor a receber</span><b id="payout-preview">0,00 MT</b></div><button class="btn btn-primary btn-full" type="submit">Converter e pagar</button></form>
+          </div>
+          <article class="panel payout-history"><div class="panel-head"><div><h3>Histórico de levantamentos</h3><span>Guardado sem servidor</span></div></div><div id="payout-history"></div></article>
+        </section>
+
+        <section class="page" id="page-reports">
+          <div class="page-toolbar"><div><h3>Relatórios</h3><p>Indicadores e relatórios operacionais da EcoLink Zambeze.</p></div><button class="btn btn-primary" id="generate-report">Gerar relatório</button></div>
+          <div class="report-grid"><article class="report-card"><span class="report-icon">▤</span><h3>Relatório mensal</h3><p>Solicitações, recolhas e resíduos coletados.</p><button class="text-btn">Gerar PDF →</button></article><article class="report-card"><span class="report-icon">♻</span><h3>Impacto ambiental</h3><p>Estimativa de resíduos desviados de aterros.</p><button class="text-btn">Ver indicadores →</button></article><article class="report-card"><span class="report-icon">♙</span><h3>Utilizadores</h3><p>Crescimento, atividade e pontos acumulados.</p><button class="text-btn">Abrir relatório →</button></article></div>
+        </section>
+
+        <section class="page" id="page-settings">
+          <div class="page-toolbar"><div><h3>Configurações</h3><p>Definições da plataforma e da organização.</p></div><button class="btn btn-primary" id="save-settings">Guardar alterações</button></div>
+          <div class="settings-grid"><article class="panel settings-panel"><h3>Organização</h3><label>Nome da organização<input value="INFOTECH, LDA"></label><label>Email administrativo<input value="info@infotech.co.mz"></label><label>Telefone<input value="+258 84 123 4567"></label><label>Localização<input value="Quelimane, Zambézia"></label></article><article class="panel settings-panel"><h3>Notificações</h3><div class="switch-row"><div><strong>Novas solicitações</strong><small>Receber alertas quando um pedido for criado.</small></div><input type="checkbox" checked></div><div class="switch-row"><div><strong>Recolhas concluídas</strong><small>Notificar a equipa quando uma recolha terminar.</small></div><input type="checkbox" checked></div><div class="switch-row"><div><strong>Relatórios semanais</strong><small>Receber resumo semanal por email.</small></div><input type="checkbox"></div></article></div>
+        </section>
+      </div>
+    </main>
+  </section>
+
+  <!-- DETAIL MODAL -->
+  <div class="modal hidden" id="modal">
+    <div class="modal-box"><button class="modal-close" id="modal-close">×</button><h2 id="modal-title">Detalhes</h2><div id="modal-content"></div></div>
+  </div>
+
+  <link rel="manifest" href="manifest.json">
+<script src="js/app.js"></script>
+</body>
+</html>
