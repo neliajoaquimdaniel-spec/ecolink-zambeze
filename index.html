@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="EcoLink Zambeze — plataforma inteligente para gestão de resíduos sólidos urbanos.">
   <title>EcoLink Zambeze | Gestão de Resíduos</title>
-  <link rel="icon" href="assets/logo-ecolink-zambeze.png" type="image/png">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="logo-ecolink-zambeze.png" type="image/png">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div id="toast-container"></div>
@@ -15,7 +15,7 @@
   <section id="login-screen" class="auth-screen">
     <div class="public-menu">
       <a href="https://ecolinkzambeze.com/" class="public-brand" onclick="return false;">
-        <img src="assets/logo-ecolink-zambeze.png" alt="EcoLink Zambeze">
+        <img src="logo-ecolink-zambeze.png" alt="EcoLink Zambeze">
       </a>
       <nav class="public-nav">
         <a href="#login-screen">Início</a>
@@ -31,16 +31,16 @@
         <h1>Reciclar hoje,<br><b>garantir o amanhã!</b></h1>
         <p>Conectamos cidadãos, recicladores e tecnologia para um Zambeze mais limpo, inclusivo e sustentável.</p>
         <div class="login-slideshow" id="login-slideshow" aria-label="Apresentação EcoLink Zambeze">
-          <img class="login-slide active" src="assets/img/login-slide.jpg" alt="Equipa EcoLink Zambeze e operação de reciclagem">
-          <img class="login-slide" src="assets/img/hero-ecolink.svg" alt="EcoLink Zambeze e camião de recolha">
-          <img class="login-slide poster-slide" src="assets/img/banner-pensar-grande.png" alt="Banner Pensar Grande do EcoLink Zambeze">
+          <img class="login-slide active" src="login-slide.jpg" alt="Equipa EcoLink Zambeze e operação de reciclagem">
+          <img class="login-slide" src="hero-ecolink.svg" alt="EcoLink Zambeze e camião de recolha">
+          <img class="login-slide poster-slide" src="banner-pensar-grande.png" alt="Banner Pensar Grande do EcoLink Zambeze">
           <div class="slide-dots" aria-hidden="true"><span class="active"></span><span></span><span></span></div>
         </div>
         <div class="login-links" id="sobre-login"><span>♻ Reciclagem inteligente</span><span>📱 Tecnologia ambiental</span><span>🤝 Inclusão social</span></div>
       </div>
       <div class="auth-card auth-card-wide">
       <div class="brand-center">
-        <img src="assets/logo-ecolink-zambeze.png" alt="EcoLink Zambeze" class="brand-logo">
+        <img src="logo-ecolink-zambeze.png" alt="EcoLink Zambeze" class="brand-logo">
         <h1>EcoLink <span>Zambeze</span></h1>
         <p>Juntos por um Zambeze mais limpo e sustentável.</p>
       </div>
@@ -75,7 +75,7 @@
   <section id="app" class="app-shell hidden" aria-label="Plataforma EcoLink Zambeze">
     <aside class="sidebar" id="sidebar">
       <div class="sidebar-brand">
-        <img src="assets/logo-ecolink-zambeze.png" alt="">
+        <img src="logo-ecolink-zambeze.png" alt="">
         <div><strong>EcoLink</strong><span>Zambeze</span></div>
       </div>
       <nav>
@@ -141,7 +141,7 @@
           </div>
 
           <div class="citizen-quick panel">
-            <img class="quick-image" src="assets/img/recycling.svg" alt="Reciclagem inteligente">
+            <img class="quick-image" src="recycling.svg" alt="Reciclagem inteligente">
             <div>
               <span class="eyebrow">ACÇÃO RÁPIDA</span>
               <h3>Tem lixo acumulado?</h3>
@@ -166,7 +166,7 @@
               <div class="delivery-people" aria-hidden="true">
                 <span class="person p1">♟</span><span class="person p2">♟</span><span class="person p3">♟</span><span class="person p4">♟</span><span class="person p5">♟</span><span class="person p6">♟</span><span class="person p7">♟</span><span class="person p8">♟</span><span class="person p9">♟</span><span class="person p10">♟</span><span class="person p11">♟</span><span class="person p12">♟</span><span class="person p13">♟</span><span class="person p14">♟</span>
               </div>
-              <div class="animated-truck"><img src="assets/img/collection-truck.svg" alt="Camião EcoLink em movimento"><span>Recolha EcoLink</span></div>
+              <div class="animated-truck"><img src="collection-truck.svg" alt="Camião EcoLink em movimento"><span>Recolha EcoLink</span></div>
               <div class="scene-ground"></div>
             </div>
             <div class="operation-legend"><span>🚚 Camião em deslocação</span><span>♟ Munícipes a entregar materiais</span><span>♻ Reciclador recebe</span><span>📍 Ponto de recolha</span></div>
@@ -390,6 +390,6 @@
   if(slides.length>1){setInterval(function(){slides[i].classList.remove('active'); if(dots[i]) dots[i].classList.remove('active'); i=(i+1)%slides.length; slides[i].classList.add('active'); if(dots[i]) dots[i].classList.add('active');},5000);}
 })();
 </script>
-<script src="js/app.js"></script>
+<script src="app.js"></script>
 </body>
 </html>

@@ -1,10 +1,9 @@
-const CACHE = 'ecolink-zambeze-v3';
+const CACHE = 'ecolink-zambeze-v4';
 const ASSETS = [
-  './', './index.html', './css/style.css', './js/app.js', './manifest.json',
-  './assets/logo-ecolink-zambeze.png', './assets/logo.svg',
-  './assets/img/banner-pensar-grande.png', './assets/img/login-slide.jpg',
-  './assets/img/hero-ecolink.svg', './assets/img/collection-truck.svg',
-  './assets/img/community.svg', './assets/img/recycling.svg'
+  './', './index.html', './style.css', './app.js', './css/style.css', './js/app.js', './manifest.json',
+  './logo-ecolink-zambeze.png', './logo.svg', './assets/logo-ecolink-zambeze.png', './assets/logo.svg',
+  './banner-pensar-grande.png', './login-slide.jpg', './hero-ecolink.svg', './collection-truck.svg', './community.svg', './recycling.svg',
+  './assets/img/banner-pensar-grande.png', './assets/img/login-slide.jpg', './assets/img/hero-ecolink.svg', './assets/img/collection-truck.svg', './assets/img/community.svg', './assets/img/recycling.svg'
 ];
 
 self.addEventListener('install', event => {

@@ -48,10 +48,10 @@
 .sidebar-brand img{width:48px;height:48px;object-fit:contain}
 /* Marca de água discreta em todas as áreas internas/dashboards */
 .app-shell{position:relative;overflow:hidden}
-.app-shell::before{content:"";position:fixed;right:2%;bottom:3%;width:390px;height:390px;background:url('../assets/logo-ecolink-zambeze.png') center/contain no-repeat;opacity:.035;pointer-events:none;z-index:0}
+.app-shell::before{content:"";position:fixed;right:2%;bottom:3%;width:390px;height:390px;background:url('logo-ecolink-zambeze.png') center/contain no-repeat;opacity:.035;pointer-events:none;z-index:0}
 .main-content,.sidebar{z-index:1}
 .auth-screen{position:relative;overflow:hidden;background:linear-gradient(135deg,#f7fcf8 0%,#eef8f1 55%,#ffffff 100%)}
-.auth-screen::before{content:"";position:absolute;right:-80px;top:120px;width:500px;height:500px;background:url('../assets/logo-ecolink-zambeze.png') center/contain no-repeat;opacity:.055;pointer-events:none}
+.auth-screen::before{content:"";position:absolute;right:-80px;top:120px;width:500px;height:500px;background:url('logo-ecolink-zambeze.png') center/contain no-repeat;opacity:.055;pointer-events:none}
 .login-layout,.public-menu{position:relative;z-index:2}
 .login-slideshow{position:relative;width:100%;max-width:590px;aspect-ratio:16/9;border-radius:20px;overflow:hidden;margin-top:12px;box-shadow:0 12px 35px rgba(12,75,37,.14);background:#eaf5ed}
 .login-slide{position:absolute!important;inset:0;width:100%!important;height:100%!important;max-width:none!important;object-fit:cover;border-radius:0!important;margin:0!important;opacity:0;transition:opacity .5s ease}
