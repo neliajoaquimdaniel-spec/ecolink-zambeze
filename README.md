@@ -25,3 +25,19 @@ O projecto inclui `manifest.json` e `sw.js`. Em localhost/HTTPS o service worker
 
 ## Pontos
 A proposta-base define pontos por actividade (por exemplo, reporte válido 10 pontos, plástico 15, papel 10, vidro 15, metal 20, campanha 30 e limpeza 50). Nesta PoC, um reporte com fotografia atribui 10 pontos. A conversão de demonstração é 100 pontos = 5,00 MT. O pagamento M-Pesa/e-Mola é apenas simulado até existir integração oficial com APIs.
+
+
+## Identidade visual actualizada
+O logotipo fornecido foi aplicado no ecrã de login, no menu lateral e como marca de água discreta nos dashboards. A área de login inclui um slideshow com a imagem fornecida do website e a arte EcoLink existente.
+
+## Imagens
+As imagens do site ficam em `assets/img/` e podem ser chamadas diretamente:
+`<img src="assets/img/hero-ecolink.svg" alt="EcoLink Zambeze">`
+Arquivos incluídos: `logo-ecolink-zambeze.png`, `login-slide.jpg`, `hero-ecolink.svg`, `recycling.svg`, `collection-truck.svg` e `community.svg`.
+
+## Acesso
+O menu da página de entrada inclui **Entrar** e **Criar conta**.
+Contas de demonstração:
+- Munícipe: +258 85 222 3344 / 12345678
+- Reciclador: +258 86 333 4455 / 12345678
+- Administrador: +258 84 123 4567 / 12345678

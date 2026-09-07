@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="EcoLink Zambeze — plataforma inteligente para gestão de resíduos sólidos urbanos.">
   <title>EcoLink Zambeze | Gestão de Resíduos</title>
-  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/logo-ecolink-zambeze.png" type="image/svg+xml">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -13,9 +13,34 @@
 
   <!-- LOGIN -->
   <section id="login-screen" class="auth-screen">
-    <div class="auth-card auth-card-wide">
+    <div class="public-menu">
+      <a href="https://ecolinkzambeze.com/" class="public-brand" onclick="return false;">
+        <img src="assets/logo-ecolink-zambeze.png" alt="EcoLink Zambeze">
+      </a>
+      <nav class="public-nav">
+        <a href="#login-screen">Início</a>
+        <a href="#sobre-login">Sobre Nós</a>
+        <a href="#servicos-login">Serviços</a>
+        <button type="button" class="public-login active" id="menu-login">Entrar</button>
+        <button type="button" class="public-register" id="menu-register">Criar conta</button>
+      </nav>
+    </div>
+    <div class="login-layout">
+      <div class="login-promo">
+        <span class="eyebrow">ECOLINK ZAMBEZE</span>
+        <h1>Reciclar hoje,<br><b>garantir o amanhã!</b></h1>
+        <p>Conectamos cidadãos, recicladores e tecnologia para um Zambeze mais limpo, inclusivo e sustentável.</p>
+        <div class="login-slideshow" id="login-slideshow" aria-label="Apresentação EcoLink Zambeze">
+          <img class="login-slide active" src="assets/img/login-slide.jpg" alt="Equipa EcoLink Zambeze e operação de reciclagem">
+          <img class="login-slide" src="assets/img/hero-ecolink.svg" alt="EcoLink Zambeze e camião de recolha">
+          <img class="login-slide poster-slide" src="assets/img/banner-pensar-grande.png" alt="Banner Pensar Grande do EcoLink Zambeze">
+          <div class="slide-dots" aria-hidden="true"><span class="active"></span><span></span><span></span></div>
+        </div>
+        <div class="login-links" id="sobre-login"><span>♻ Reciclagem inteligente</span><span>📱 Tecnologia ambiental</span><span>🤝 Inclusão social</span></div>
+      </div>
+      <div class="auth-card auth-card-wide">
       <div class="brand-center">
-        <img src="assets/logo.svg" alt="EcoLink Zambeze" class="brand-logo">
+        <img src="assets/logo-ecolink-zambeze.png" alt="EcoLink Zambeze" class="brand-logo">
         <h1>EcoLink <span>Zambeze</span></h1>
         <p>Juntos por um Zambeze mais limpo e sustentável.</p>
       </div>
@@ -43,13 +68,14 @@
       </div>
       <button class="btn btn-outline btn-full" id="register-demo" type="button">Criar conta</button>
     </div>
+    </div>
   </section>
 
   <!-- APP -->
-  <section id="app" class="app-shell hidden">
+  <section id="app" class="app-shell hidden" aria-label="Plataforma EcoLink Zambeze">
     <aside class="sidebar" id="sidebar">
       <div class="sidebar-brand">
-        <img src="assets/logo.svg" alt="">
+        <img src="assets/logo-ecolink-zambeze.png" alt="">
         <div><strong>EcoLink</strong><span>Zambeze</span></div>
       </div>
       <nav>
@@ -115,6 +141,7 @@
           </div>
 
           <div class="citizen-quick panel">
+            <img class="quick-image" src="assets/img/recycling.svg" alt="Reciclagem inteligente">
             <div>
               <span class="eyebrow">ACÇÃO RÁPIDA</span>
               <h3>Tem lixo acumulado?</h3>
@@ -125,6 +152,25 @@
               <button class="btn btn-outline" data-go="rewards">💰 Ver recompensas</button>
             </div>
           </div>
+
+          <article class="panel eco-operation-panel">
+            <div class="panel-head">
+              <div><h3>Operação EcoLink em tempo real</h3><span>Simulação visual do ponto de recolha e entrega de recicláveis.</span></div>
+              <span class="live-badge"><i></i> AO VIVO</span>
+            </div>
+            <div class="operation-scene" aria-label="Animação de recolha EcoLink">
+              <div class="scene-sky"><span class="cloud c1"></span><span class="cloud c2"></span></div>
+              <div class="route-line"></div>
+              <div class="collection-point"><span class="point-pin">♻</span><strong>Ponto de Recolha</strong><small>Quelimane</small></div>
+              <div class="recycler-agent"><div class="agent-head">●</div><div class="agent-body">♻</div><span>Reciclador</span></div>
+              <div class="delivery-people" aria-hidden="true">
+                <span class="person p1">♟</span><span class="person p2">♟</span><span class="person p3">♟</span><span class="person p4">♟</span><span class="person p5">♟</span><span class="person p6">♟</span><span class="person p7">♟</span><span class="person p8">♟</span><span class="person p9">♟</span><span class="person p10">♟</span><span class="person p11">♟</span><span class="person p12">♟</span><span class="person p13">♟</span><span class="person p14">♟</span>
+              </div>
+              <div class="animated-truck"><img src="assets/img/collection-truck.svg" alt="Camião EcoLink em movimento"><span>Recolha EcoLink</span></div>
+              <div class="scene-ground"></div>
+            </div>
+            <div class="operation-legend"><span>🚚 Camião em deslocação</span><span>♟ Munícipes a entregar materiais</span><span>♻ Reciclador recebe</span><span>📍 Ponto de recolha</span></div>
+          </article>
 
           <div class="dashboard-grid">
             <article class="panel chart-panel">
@@ -199,7 +245,33 @@
                 <label>Tipo de resíduo<select id="report-type" required><option value="Plástico">Plástico</option><option value="Papel">Papel</option><option value="Metal">Metal</option><option value="Vidro">Vidro</option><option value="Orgânico">Orgânico</option><option value="Outros">Outros</option></select></label>
                 <label>Quantidade aproximada<select id="report-quantity" required><option>Saco pequeno (1–5kg)</option><option selected>Saco médio (10–20kg)</option><option>Saco grande (20–40kg)</option><option>Mais de 40kg</option></select></label>
               </div>
-              <label>Endereço / bairro<input id="report-address" placeholder="Ex.: Bairro Centro, Quelimane" required></label><button type="button" class="btn btn-outline" id="locate-report">📍 Usar a minha localização</button>
+              <div class="form-two address-bairro-row">
+                <label>Endereço / Rua<input id="report-address" placeholder="Ex.: Av. Julius Nyerere, próximo ao mercado" required></label>
+                <label>Bairro<select id="report-bairro" required>
+                  <option value="" selected disabled>Seleccione o bairro</option>
+                  <optgroup label="PAU 1">
+                    <option>1.º de Maio</option><option>24 de Julho</option><option>Aeroporto A e B</option><option>Chirangano</option><option>Filipe Samuel Magaia</option><option>Kansa</option><option>Liberdade</option><option>Mapiazua</option><option>Piloto</option><option>Popular</option><option>Saguar A</option><option>Saguar B</option><option>Sinacacura</option><option>Torrone Velho</option>
+                  </optgroup>
+                  <optgroup label="PAU 2">
+                    <option>7 de Abril</option><option>Coalane II A</option><option>Coalane II B</option><option>Icídua</option><option>Ivagalane</option><option>Janeiro</option><option>Mirazane</option><option>Murropue</option><option>Sangariveira</option><option>Torrone Novo</option>
+                  </optgroup>
+                  <optgroup label="PAU 3">
+                    <option>Acordo de Lusaka A</option><option>Acordo de Lusaka B</option><option>Coalane I</option><option>Cololo</option><option>Sampene</option><option>Samugue</option><option>1.º de Maio A</option><option>1.º de Maio B</option><option>25 de Setembro</option><option>3 de Fevereiro</option>
+                  </optgroup>
+                  <optgroup label="PAU 4">
+                    <option>Brandão</option><option>Floresta A</option><option>Floresta B</option><option>Inhangome</option><option>Manhaua A</option><option>Manhaua B</option><option>Micajune A</option><option>Micajune B</option><option>Santagua A</option><option>Santagua B</option><option>17 de Setembro</option><option>Chuabo Dembe</option><option>Bairro Novo</option>
+                  </optgroup>
+                  <optgroup label="PAU 5">
+                    <option>Mbonio</option><option>Migano</option><option>Namuinho</option><option>Gogone</option><option>Bazar</option>
+                  </optgroup>
+                </select></label>
+              </div>
+              <div class="location-action">
+                <button type="button" class="btn btn-outline" id="locate-report">📍 Usar a minha localização</button>
+                <span id="report-location-status" class="location-status">Localização não definida</span>
+              </div>
+              <input type="hidden" id="report-lat">
+              <input type="hidden" id="report-lon">
               <label>Observação (opcional)<textarea id="report-note" rows="3" placeholder="Ex.: lixo acumulado junto à estrada..."></textarea></label>
               <button class="btn btn-primary btn-full" type="submit">Enviar relatório e ganhar +10 pontos</button>
               <p class="privacy-note">Modo offline: os dados e imagens são guardados localmente neste dispositivo. Não é necessária uma base de dados do servidor.</p>
@@ -310,6 +382,14 @@
   </div>
 
   <link rel="manifest" href="manifest.json">
+<script>
+(function(){
+  const slides=document.querySelectorAll('.login-slide');
+  const dots=document.querySelectorAll('.slide-dots span');
+  let i=0;
+  if(slides.length>1){setInterval(function(){slides[i].classList.remove('active'); if(dots[i]) dots[i].classList.remove('active'); i=(i+1)%slides.length; slides[i].classList.add('active'); if(dots[i]) dots[i].classList.add('active');},5000);}
+})();
+</script>
 <script src="js/app.js"></script>
 </body>
 </html>
